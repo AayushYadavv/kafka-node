@@ -1,6 +1,8 @@
 const { Kafka } = require('kafkajs')
 let operartions = require("./operartions/add_user")
- require('./models')
+let producer = require("./producer")
+require('./models')
+
 
 
 
@@ -25,5 +27,8 @@ let consumer_func = async function(){
     })
 }
 
-// connect()/
+//producer
+setInterval(producer.producer_func, 2000);
+
+//consumer
 consumer_func()
